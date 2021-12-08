@@ -5,7 +5,7 @@
 
 
 function getRndInteger(min, max) {
-    let randomNumber = [];
+    
 
     for (let i = 0; i < 5; i++) {
 
@@ -23,32 +23,37 @@ function getRndInteger(min, max) {
     }
     return randomNumber
 }
-
-let number = getRndInteger(1,100);
-
+let randomNumber = [];
 const numberShow = document.getElementById('numberShow')
-
 console.log(numberShow);
-
+let number = getRndInteger(1, 5);
 numberShow.innerHTML = `<h1> i tuoi numeri sono: ${number}. </h1>`
-
 const clock = setTimeout(myFunction, 3000);
-
 function myFunction(){
-    let askNumberArray = [];
+    clearInterval(clock)
     numberShow.innerHTML = "";
+    let askNumberArray = [];
     setTimeout (myFunction, 200)
     function myFunction() {
-        for (let i = 0; i < 5; i++) {
-            let askNumber = parseInt(prompt("inserisci 5 numberi"));
-            console.log(askNumber)
-            askNumberArray.push(askNumber);
-        }
+        setTimeout(function(){
+            for (let i = 0; i < 5; i++) {
+                let askNumber = parseInt(prompt("inserisci 5 numberi"));
+                console.log(askNumber)
+                askNumberArray.push(askNumber);
+            }
+            
+            if (randomNumber == askNumberArray) {
+                console.log("sono uguali")
+                
+            }else{
+                console.log("sono diversi");
+            }
         
+            console.log(askNumberArray, number);
+            console.log(randomNumber == askNumberArray);
+        },200);   
     }
-        
-    console.log(askNumberArray, number);
-
 }
+
 
 console.log(clock);
